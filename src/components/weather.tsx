@@ -11,10 +11,10 @@ import {
 // import Autosuggest from 'react-autosuggest';
 import { TiWeatherPartlySunny } from "react-icons/ti";
 import axios from "axios";
-import { Box, CircularProgress, TextField, Typography, colors } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, TextField, Typography,  } from "@mui/material";
+// import SearchIcon from '@mui/icons-material/Search';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
-import Autocomplete from '@mui/material/Autocomplete';
+// import Autocomplete from '@mui/material/Autocomplete';
 
 interface WeatherDataProps {
 
