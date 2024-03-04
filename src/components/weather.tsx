@@ -121,7 +121,7 @@ const DisplayWeather = () => {
               lg: 500,
               xl: 600
             },
-            ml: 10,
+            ml: 5,
             "@media (max-width:600px)": {
               width: "300px",
               height: "600px",
