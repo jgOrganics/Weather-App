@@ -124,7 +124,7 @@ const DisplayWeather = () => {
             ml: 5,
             "@media (max-width:600px)": {
               width: "300px",
-              height: "600px",
+              height: "650px",
             },
             backgroundColor: '#80D0EB',
             borderRadius: '12px',
@@ -150,19 +150,19 @@ const DisplayWeather = () => {
             alignItems: 'center',
             width: '100%',
           }}>
-            <CustomizableTextField
-              // sx={{
-              //   width: 300,
-              //   "@media (max-width:600px)": {
-              //     width: 300,
+            <TextField
+              sx={{
+                width: 300,
+                "@media (max-width:600px)": {
+                  width: 300,
   
-              //     // height: "200px",
-              //     // margin: '10px 0px 50px',
-              //     display: 'flex',
-              //     alignItems: 'center',
-              //     flexDirection: 'column',
-              //   },
-              // }}
+                  // height: "200px",
+                  margin: '-50px 0px 50px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                },
+              }}
               type="text"
               placeholder="Enter city name"
   
@@ -180,7 +180,7 @@ const DisplayWeather = () => {
                 "@media (max-width:600px)": {
                   width: "300px",
                   height: "380px",
-                  margin: '10px 0px ',
+                  margin: '-10px 0px ',
                   display: 'flex',
                   alignItems: 'center',
                   flexDirection: 'column',
@@ -197,8 +197,8 @@ const DisplayWeather = () => {
                     fontSize: 50,
                     "@media (max-width:600px)": {
                       fontSize: "1rem",
-  
                       display: 'flex',
+                      margin:"0px 10px 5px 10px" ,
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
@@ -208,7 +208,7 @@ const DisplayWeather = () => {
                 <Box sx={{
                   fontSize: '10rem',
                   "@media (max-width:600px)": {
-                    margin: '-50px 0px ',
+                    margin: '-10px 0px ',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
@@ -220,7 +220,6 @@ const DisplayWeather = () => {
                   fontSize: 50,
                   "@media (max-width:600px)": {
                     fontSize: "2rem",
-  
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
