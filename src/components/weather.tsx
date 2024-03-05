@@ -11,7 +11,7 @@ import { TiWeatherPartlySunny } from "react-icons/ti";
 import axios from "axios";
 import { Box, TextField, Typography, useMediaQuery, } from "@mui/material";
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
-import { CustomMainConatiner, CustomizableTextField } from "../styles/Styles";
+import { CustomMainConatiner } from "../styles/Styles";
 
 interface WeatherDataProps {
 
@@ -32,10 +32,7 @@ interface WeatherDataProps {
 }
 
 
-const DisplayWeather = () => {
-
-
-
+const DisplayWeather = () =>{
 
   const api_key = "72c751450fe0d9481fa6d8f7bf2cb9c1";
   const api_Endpoint = "https://api.openweathermap.org/data/2.5/";
@@ -104,7 +101,6 @@ const DisplayWeather = () => {
     }
   };
 
-
   const isMobile = useMediaQuery('(max-width:600px)');
   const isTablet = useMediaQuery('(min-width:601px) and (max-width:960px)');
   const isDesktop = useMediaQuery('(min-width:961px)');
@@ -112,1041 +108,1040 @@ const DisplayWeather = () => {
 
     <CustomMainConatiner>
       {
-        isMobile?(
+        isMobile ? (
           <Box
-          sx={{
-            width: {
-              xs: 600,
-              sm: 400,
-              lg: 500,
-              xl: 600
-            },
-            ml: 5,
-            "@media (max-width:600px)": {
-              width: "300px",
-              height: "650px",
-            },
-            backgroundColor: '#80D0EB',
-            borderRadius: '12px',
-            padding: '5rem',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-70%, -50%)',
-            boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
-            boxSizing: 'border-box',
-            color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-  
-        >
-          <Box sx={{
-            marginTop: 1, // Adjust units as needed (px, rem, etc.)
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-            <TextField
-              sx={{
-                width: 300,
-                "@media (max-width:600px)": {
+            sx={{
+              // width: {
+              //   xs: 600,
+              //   sm: 400,
+              //   lg: 500,
+              //   xl: 600
+              // },
+              ml: 5,
+              "@media (max-width:600px)": {
+                width: "300px",
+                height: "650px",
+              },
+              backgroundColor: '#80D0EB',
+              borderRadius: '12px',
+              padding: '5rem',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-70%, -50%)',
+              boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
+              boxSizing: 'border-box',
+              color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+
+          >
+            <Box sx={{
+              marginTop: 1, // Adjust units as needed (px, rem, etc.)
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+              <TextField
+                sx={{
                   width: 300,
-  
-                  // height: "200px",
-                  margin: '-50px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
-              }}
-              type="text"
-              placeholder="Enter city name"
-  
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </Box>
-  
-          {weather ? (
-            <>
-              <Box sx={{
-  
-                width: "600px",
-                "@media (max-width:600px)": {
-                  width: "300px",
-                  height: "380px",
-                  margin: '-10px 0px ',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-  
-                },
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-                margin: '30px 0',
-              }}>
-                <Typography
-  
-                  sx={{
-                    fontSize: 50,
-                    "@media (max-width:600px)": {
-                      fontSize: "1rem",
-                      display: 'flex',
-                      margin:"0px 10px 5px 10px" ,
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} >{weather.name}</Typography>
-                <Typography>{weather.sys.country}</Typography>
-                <Box sx={{
-                  fontSize: '10rem',
                   "@media (max-width:600px)": {
+                    width: 300,
+
+                    // height: "200px",
+                    margin: '-50px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}
+                type="text"
+                placeholder="Enter city name"
+
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </Box>
+
+            {weather ? (
+              <>
+                <Box sx={{
+
+                  width: "600px",
+                  "@media (max-width:600px)": {
+                    width: "300px",
+                    height: "380px",
                     margin: '-10px 0px ',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
+
                   },
-                }}>
-                  {iconChanger(weather.weather[0].main)}
-                </Box  >
-                <Typography sx={{
-                  fontSize: 50,
-                  "@media (max-width:600px)": {
-                    fontSize: "2rem",
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>{weather.main.temp.toFixed(0)}</Typography>
-                <Typography>{weather.weather[0].main}</Typography>
-              </Box>
-  
-              <Box sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-around',
-                fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
-                margin: '10px',
-                background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
-                borderRadius: '12px',
-                padding: '10px',
-                "@media (max-width:600px)": {
-                  width: "280px",
-                  height: "190px",
-                  margin: '10px 0px 50px',
                   display: 'flex',
                   alignItems: 'center',
                   flexDirection: 'column',
-                },
-              }}>
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 20px',
-                  "@media (max-width:600px)": {
-                    width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-  
-                  // Adjust units as needed (px, rem, etc.)
+                  margin: '30px 0',
                 }}>
-                  <WaterDropIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
-                    "@media (max-width:600px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} />
+                  <Typography
+
+                    sx={{
+                      fontSize: 50,
+                      "@media (max-width:600px)": {
+                        fontSize: "1rem",
+                        display: 'flex',
+                        margin: "0px 10px 5px 10px",
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} >{weather.name}</Typography>
+                  <Typography>{weather.sys.country}</Typography>
                   <Box sx={{
+                    fontSize: '10rem',
                     "@media (max-width:600px)": {
-                      fontSize: "2rem",
-  
+                      margin: '-10px 0px ',
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
                   }}>
-                    <Typography>{weather.main.humidity}%</Typography>
-                    <Typography>Humidity</Typography>
-                  </Box>
-                </Box>
-  
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 30px', // Adjust units as needed (px, rem, etc.)
-                  "@media (max-width:600px)": {
-                    width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-  
-                }}>
-                  <AirTwoToneIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
+                    {iconChanger(weather.weather[0].main)}
+                  </Box  >
+                  <Typography sx={{
+                    fontSize: 50,
                     "@media (max-width:600px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
+                      fontSize: "2rem",
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
-                  }} />
-                  <Box
-                    sx={{
+                  }}>{weather.main.temp.toFixed(0)}</Typography>
+                  <Typography>{weather.weather[0].main}</Typography>
+                </Box>
+
+                <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
+                  margin: '10px',
+                  background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
+                  borderRadius: '12px',
+                  padding: '10px',
+                  "@media (max-width:600px)": {
+                    width: "280px",
+                    height: "190px",
+                    margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 20px',
+                    "@media (max-width:600px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                    // Adjust units as needed (px, rem, etc.)
+                  }}>
+                    <WaterDropIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
                       "@media (max-width:600px)": {
-                        fontSize: "2rem",
-  
+                        // fontSize:"2rem",  
+                        ml: 2,
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
                       },
-                    }}
-                  >
-                    {/* <h1>{weatherData.wind.speed}km/h</h1> */}
-                    <Typography>{weather.wind.speed}km/h</Typography>
-                    <Typography>Wind speed</Typography>
+
+                    }} />
+                    <Box sx={{
+                      "@media (max-width:600px)": {
+                        fontSize: "2rem",
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }}>
+                      <Typography>{weather.main.humidity}%</Typography>
+                      <Typography>Humidity</Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 30px', // Adjust units as needed (px, rem, etc.)
+                    "@media (max-width:600px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                  }}>
+                    <AirTwoToneIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (max-width:600px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }} />
+                    <Box
+                      sx={{
+                        "@media (max-width:600px)": {
+                          fontSize: "2rem",
+
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        },
+                      }}
+                    >
+                      {/* <h1>{weatherData.wind.speed}km/h</h1> */}
+                      <Typography>{weather.wind.speed}km/h</Typography>
+                      <Typography>Wind speed</Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            </>
-          ) : isLoading ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              <HourglassBottomIcon />
-              <Typography>Loading</Typography>
-            </Box>
-          ) : error ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-              color: "red"
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography >{error}</Typography>
-            </Box>
-          ) : (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography>Please enter the city name</Typography>
-            </Box>
-          )}
-        </Box>
-        ):isTablet?(
-          <Box
-          sx={{
-            width: {
-              xs: 600,
-              sm: 600,
-              lg: 600,
-              xl: 600
-            },
-            ml: 10,
-            "@media (min-width:601px) and (max-width:960px)": {
-              width: "400px",
-              height: "800px",
-            },
-            backgroundColor: '#80D0EB',
-            borderRadius: '12px',
-            padding: '5rem',
-            position: 'absolute',
-            top: '60%',
-            left: '50%',
-            transform: 'translate(-70%, -50%)',
-            boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
-            boxSizing: 'border-box',
-            color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-  
-        >
-          <Box sx={{
-            marginTop: 1, // Adjust units as needed (px, rem, etc.)
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-            <TextField
-              sx={{
-                width: 600,
-                "@media (min-width:601px) and (max-width:960px)": {
-                  width: 600,
-                  // height: "200px",
-                  margin: '15px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
-              }}
-              type="text"
-              placeholder="Enter city name"
-  
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </Box>
-  
-          {weather ? (
-            <>
+              </>
+            ) : isLoading ? (
               <Box sx={{
-  
-                width: "800px",
-                "@media (min-width:601px) and (max-width:960px)": {
-                  width: "300px",
-                  height: "380px",
-                  margin: '10px 0px ',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-  
-                },
+                height: '400px',
+                width: '300px',
                 display: 'flex',
-                alignItems: 'center',
                 flexDirection: 'column',
-                margin: '30px 0',
-              }}>
-                <Typography
-                  sx={{
-                    fontSize: 50,
-                    "@media (min-width:601px) and (max-width:960px)": {
-                      fontSize: "1rem",
-                      margin:"10px 10px 5px 10px" ,
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} >{weather.name}</Typography>
-                <Typography>{weather.sys.country}</Typography>
-                <Box sx={{
-                  fontSize: '10rem',
-                  "@media (min-width:601px) and (max-width:960px)": {
-                    // margin: '5px 0px ',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>
-                  {iconChanger(weather.weather[0].main)}
-                </Box  >
-                <Typography sx={{
-                  fontSize: 50,
-                  "@media (min-width:601px) and (max-width:960px)": {
-                    fontSize: "2rem",
-  
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>{weather.main.temp.toFixed(0)}</Typography>
-                <Typography>{weather.weather[0].main}</Typography>
-              </Box>
-  
-              <Box sx={{
-                display: 'flex',
+                justifyContent: 'center',
                 alignItems: 'center',
-                justifyContent: 'space-around',
-                fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
-                margin: '10px',
-                background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
-                borderRadius: '12px',
-                padding: '10px',
-                "@media (min-width:601px) and (max-width:960px)": {
-                  width: "280px",
-                  height: "190px",
-                  margin: '10px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
+                zIndex: 9999,
               }}>
+                <HourglassBottomIcon />
+                <Typography>Loading</Typography>
+              </Box>
+            ) : error ? (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+                color: "red"
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography >{error}</Typography>
+              </Box>
+            ) : (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography>Please enter the city name</Typography>
+              </Box>
+            )}
+          </Box>
+        ) : isTablet ? (
+          <Box
+            sx={{
+              width: {
+                xs: 600,
+                sm: 600,
+                lg: 600,
+                xl: 600
+              },
+              ml: 10,
+              "@media (min-width:601px) and (max-width:960px)": {
+                width: "400px",
+                height: "800px",
+              },
+              backgroundColor: '#80D0EB',
+              borderRadius: '12px',
+              padding: '5rem',
+              position: 'absolute',
+              top: '60%',
+              left: '50%',
+              transform: 'translate(-70%, -50%)',
+              boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
+              boxSizing: 'border-box',
+              color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+
+          >
+            <Box sx={{
+              marginTop: 1, // Adjust units as needed (px, rem, etc.)
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+              <TextField
+                sx={{
+                  width: 600,
+                  "@media (min-width:601px) and (max-width:960px)": {
+                    width: 600,
+                    // height: "200px",
+                    margin: '15px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}
+                type="text"
+                placeholder="Enter city name"
+
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </Box>
+
+            {weather ? (
+              <>
                 <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 20px',
+
+                  width: "800px",
                   "@media (min-width:601px) and (max-width:960px)": {
                     width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
+                    height: "380px",
+                    margin: '10px 0px ',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
+
                   },
-  
-                  // Adjust units as needed (px, rem, etc.)
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  margin: '30px 0',
                 }}>
-                  <WaterDropIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
-                    "@media (min-width:601px) and (max-width:960px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} />
+                  <Typography
+                    sx={{
+                      fontSize: 50,
+                      "@media (min-width:601px) and (max-width:960px)": {
+                        fontSize: "1rem",
+                        margin: "10px 10px 5px 10px",
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} >{weather.name}</Typography>
+                  <Typography>{weather.sys.country}</Typography>
                   <Box sx={{
+                    fontSize: '10rem',
                     "@media (min-width:601px) and (max-width:960px)": {
-                      fontSize: "2rem",
-  
+                      // margin: '5px 0px ',
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
                   }}>
-                    <Typography>{weather.main.humidity}%</Typography>
-                    <Typography>Humidity</Typography>
-                  </Box>
-                </Box>
-  
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 30px', // Adjust units as needed (px, rem, etc.)
-                  "@media (min-width:601px) and (max-width:960px)": {
-                    width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-  
-                }}>
-                  <AirTwoToneIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
+                    {iconChanger(weather.weather[0].main)}
+                  </Box  >
+                  <Typography sx={{
+                    fontSize: 50,
                     "@media (min-width:601px) and (max-width:960px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
+                      fontSize: "2rem",
+
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
-                  }} />
-                  <Box
-                    sx={{
+                  }}>{weather.main.temp.toFixed(0)}</Typography>
+                  <Typography>{weather.weather[0].main}</Typography>
+                </Box>
+
+                <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
+                  margin: '10px',
+                  background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
+                  borderRadius: '12px',
+                  padding: '10px',
+                  "@media (min-width:601px) and (max-width:960px)": {
+                    width: "280px",
+                    height: "190px",
+                    margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 20px',
+                    "@media (min-width:601px) and (max-width:960px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                    // Adjust units as needed (px, rem, etc.)
+                  }}>
+                    <WaterDropIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (min-width:601px) and (max-width:960px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} />
+                    <Box sx={{
                       "@media (min-width:601px) and (max-width:960px)": {
                         fontSize: "2rem",
-  
+
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
                       },
-                    }}
-                  >
-                    {/* <h1>{weatherData.wind.speed}km/h</h1> */}
-                    <Typography>{weather.wind.speed}km/h</Typography>
-                    <Typography>Wind speed</Typography>
+                    }}>
+                      <Typography>{weather.main.humidity}%</Typography>
+                      <Typography>Humidity</Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 30px', // Adjust units as needed (px, rem, etc.)
+                    "@media (min-width:601px) and (max-width:960px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                  }}>
+                    <AirTwoToneIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (min-width:601px) and (max-width:960px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }} />
+                    <Box
+                      sx={{
+                        "@media (min-width:601px) and (max-width:960px)": {
+                          fontSize: "2rem",
+
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        },
+                      }}
+                    >
+                      {/* <h1>{weatherData.wind.speed}km/h</h1> */}
+                      <Typography>{weather.wind.speed}km/h</Typography>
+                      <Typography>Wind speed</Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            </>
-          ) : isLoading ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              <HourglassBottomIcon />
-              <Typography>Loading</Typography>
-            </Box>
-          ) : error ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-              color: "red"
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography >{error}</Typography>
-            </Box>
-          ) : (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography>Please enter the city name</Typography>
-            </Box>
-          )}
-        </Box>
-        ): isDesktop? (
-          <Box
-          sx={{
-            width: {
-              xs: 600,
-              sm: 400,
-              lg: 500,
-              xl: 600
-            },
-            ml: 10,
-            "@media (max-width:600px)": {
-              width: "300px",
-              height: "600px",
-            },
-            backgroundColor: '#80D0EB',
-            borderRadius: '12px',
-            padding: '5rem',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-70%, -50%)',
-            boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
-            boxSizing: 'border-box',
-            color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-  
-        >
-          <Box sx={{
-            marginTop: 1, // Adjust units as needed (px, rem, etc.)
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-            <TextField
-              sx={{
-                width: 300,
-                "@media (max-width:600px)": {
-                  width: 300,
-  
-                  // height: "200px",
-                  // margin: '10px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
-              }}
-              type="text"
-              placeholder="Enter city name"
-  
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </Box>
-  
-          {weather ? (
-            <>
+              </>
+            ) : isLoading ? (
               <Box sx={{
-  
-                width: "600px",
-                "@media (max-width:600px)": {
-                  width: "300px",
-                  height: "380px",
-                  margin: '10px 0px ',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-  
-                },
+                height: '400px',
+                width: '300px',
                 display: 'flex',
-                alignItems: 'center',
                 flexDirection: 'column',
-                margin: '30px 0',
-              }}>
-                <Typography
-  
-                  sx={{
-                    fontSize: 50,
-                    "@media (max-width:600px)": {
-                      fontSize: "1rem",
-  
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} >{weather.name}</Typography>
-                <Typography>{weather.sys.country}</Typography>
-                <Box sx={{
-                  fontSize: '10rem',
-                  "@media (max-width:600px)": {
-                    margin: '-50px 0px ',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>
-                  {iconChanger(weather.weather[0].main)}
-                </Box  >
-                <Typography sx={{
-                  fontSize: 50,
-                  "@media (max-width:600px)": {
-                    fontSize: "2rem",
-  
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>{weather.main.temp.toFixed(0)}</Typography>
-                <Typography>{weather.weather[0].main}</Typography>
-              </Box>
-  
-              <Box sx={{
-                display: 'flex',
+                justifyContent: 'center',
                 alignItems: 'center',
-                justifyContent: 'space-around',
-                fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
-                margin: '10px',
-                background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
-                borderRadius: '12px',
-                padding: '10px',
-                "@media (max-width:600px)": {
-                  width: "280px",
-                  height: "190px",
-                  margin: '10px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
+                zIndex: 9999,
               }}>
+                <HourglassBottomIcon />
+                <Typography>Loading</Typography>
+              </Box>
+            ) : error ? (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+                color: "red"
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography >{error}</Typography>
+              </Box>
+            ) : (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography>Please enter the city name</Typography>
+              </Box>
+            )}
+          </Box>
+        ) : isDesktop ? (
+          <Box
+            sx={{
+              width: {
+                xs: 600,
+                sm: 400,
+                lg: 500,
+                xl: 600
+              },
+              ml: 10,
+              "@media (max-width:600px)": {
+                width: "300px",
+                height: "600px",
+              },
+              backgroundColor: '#80D0EB',
+              borderRadius: '12px',
+              padding: '5rem',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-70%, -50%)',
+              boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
+              boxSizing: 'border-box',
+              color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+
+          >
+            <Box sx={{
+              marginTop: 1, // Adjust units as needed (px, rem, etc.)
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+              <TextField
+                sx={{
+                  width: 300,
+                  "@media (max-width:600px)": {
+                    width: 300,
+
+                    // height: "200px",
+                    // margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}
+                type="text"
+                placeholder="Enter city name"
+
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </Box>
+
+            {weather ? (
+              <>
                 <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 20px',
+
+                  width: "600px",
                   "@media (max-width:600px)": {
                     width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
+                    height: "380px",
+                    margin: '10px 0px ',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
+
                   },
-  
-                  // Adjust units as needed (px, rem, etc.)
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  margin: '30px 0',
                 }}>
-                  <WaterDropIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
-                    "@media (max-width:600px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} />
+                  <Typography
+
+                    sx={{
+                      fontSize: 50,
+                      "@media (max-width:600px)": {
+                        fontSize: "1rem",
+
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} >{weather.name}</Typography>
+                  <Typography>{weather.sys.country}</Typography>
                   <Box sx={{
+                    fontSize: '10rem',
                     "@media (max-width:600px)": {
-                      fontSize: "2rem",
-  
+                      margin: '-50px 0px ',
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
                   }}>
-                    <Typography>{weather.main.humidity}%</Typography>
-                    <Typography>Humidity</Typography>
-                  </Box>
-                </Box>
-  
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 30px', // Adjust units as needed (px, rem, etc.)
-                  "@media (max-width:600px)": {
-                    width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-  
-                }}>
-                  <AirTwoToneIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
+                    {iconChanger(weather.weather[0].main)}
+                  </Box  >
+                  <Typography sx={{
+                    fontSize: 50,
                     "@media (max-width:600px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
+                      fontSize: "2rem",
+
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
-                  }} />
-                  <Box
-                    sx={{
+                  }}>{weather.main.temp.toFixed(0)}</Typography>
+                  <Typography>{weather.weather[0].main}</Typography>
+                </Box>
+
+                <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
+                  margin: '10px',
+                  background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
+                  borderRadius: '12px',
+                  padding: '10px',
+                  "@media (max-width:600px)": {
+                    width: "280px",
+                    height: "190px",
+                    margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 20px',
+                    "@media (max-width:600px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                    // Adjust units as needed (px, rem, etc.)
+                  }}>
+                    <WaterDropIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (max-width:600px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} />
+                    <Box sx={{
                       "@media (max-width:600px)": {
                         fontSize: "2rem",
-  
+
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
                       },
-                    }}
-                  >
-                    {/* <h1>{weatherData.wind.speed}km/h</h1> */}
-                    <Typography>{weather.wind.speed}km/h</Typography>
-                    <Typography>Wind speed</Typography>
+                    }}>
+                      <Typography>{weather.main.humidity}%</Typography>
+                      <Typography>Humidity</Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 30px', // Adjust units as needed (px, rem, etc.)
+                    "@media (max-width:600px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                  }}>
+                    <AirTwoToneIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (max-width:600px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }} />
+                    <Box
+                      sx={{
+                        "@media (max-width:600px)": {
+                          fontSize: "2rem",
+
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        },
+                      }}
+                    >
+                      {/* <h1>{weatherData.wind.speed}km/h</h1> */}
+                      <Typography>{weather.wind.speed}km/h</Typography>
+                      <Typography>Wind speed</Typography>
+                    </Box>
                   </Box>
                 </Box>
-              </Box>
-            </>
-          ) : isLoading ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              <HourglassBottomIcon />
-              <Typography>Loading</Typography>
-            </Box>
-          ) : error ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-              color: "red"
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography >{error}</Typography>
-            </Box>
-          ) : (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography>Please enter the city name</Typography>
-            </Box>
-          )}
-        </Box>
-        ):(
-          <Box
-          sx={{
-            width: {
-              xs: 600,
-              sm: 400,
-              lg: 500,
-              xl: 600
-            },
-            ml: 10,
-            "@media (min-width:961px)": {
-              width: "300px",
-              height: "600px",
-            },
-            backgroundColor: '#80D0EB',
-            borderRadius: '12px',
-            padding: '5rem',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-70%, -50%)',
-            boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
-            boxSizing: 'border-box',
-            color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-  
-        >
-          <Box sx={{
-            marginTop: 1, // Adjust units as needed (px, rem, etc.)
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-            <TextField
-              sx={{
-                width: 300,
-                "@media (min-width:961px)": {
-                  width: 300,
-  
-                  // height: "200px",
-                  // margin: '10px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
-              }}
-              type="text"
-              placeholder="Enter city name"
-  
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </Box>
-  
-          {weather ? (
-            <>
+              </>
+            ) : isLoading ? (
               <Box sx={{
-                width: "600px",
-                "@media (min-width:961px)": {
-                  width: "300px",
-                  height: "380px",
-                  margin: '10px 0px ',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-  
-                },
+                height: '400px',
+                width: '300px',
                 display: 'flex',
-                alignItems: 'center',
                 flexDirection: 'column',
-                margin: '30px 0',
-              }}>
-                <Typography
-  
-                  sx={{
-                    fontSize: 50,
-                    "@media (min-width:961px)": {
-                      fontSize: "1rem",
-  
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} >{weather.name}</Typography>
-                <Typography>{weather.sys.country}</Typography>
-                <Box sx={{
-                  fontSize: '10rem',
-                  "@media (min-width:961px)": {
-                    margin: '-50px 0px ',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>
-                  {iconChanger(weather.weather[0].main)}
-                </Box  >
-                <Typography sx={{
-                  fontSize: 50,
-                  "@media (min-width:961px)": {
-                    fontSize: "2rem",
-  
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-                }}>{weather.main.temp.toFixed(0)}</Typography>
-                <Typography>{weather.weather[0].main}</Typography>
-              </Box>
-  
-              <Box sx={{
-                display: 'flex',
+                justifyContent: 'center',
                 alignItems: 'center',
-                justifyContent: 'space-around',
-                fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
-                margin: '10px',
-                background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
-                borderRadius: '12px',
-                padding: '10px',
-                "@media (max-width:600px)": {
-                  width: "280px",
-                  height: "190px",
-                  margin: '10px 0px 50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexDirection: 'column',
-                },
+                zIndex: 9999,
               }}>
+                <HourglassBottomIcon />
+                <Typography>Loading</Typography>
+              </Box>
+            ) : error ? (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+                color: "red"
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography >{error}</Typography>
+              </Box>
+            ) : (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography>Please enter the city name</Typography>
+              </Box>
+            )}
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              width: {
+                xs: 600,
+                sm: 400,
+                lg: 500,
+                xl: 600
+              },
+              ml: 10,
+              "@media (min-width:961px)": {
+                width: "300px",
+                height: "600px",
+              },
+              backgroundColor: '#80D0EB',
+              borderRadius: '12px',
+              padding: '5rem',
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-70%, -50%)',
+              boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
+              boxSizing: 'border-box',
+              color: 'rgba(0, 0, 0, 0.8)', // Consistent color with slight transparency
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+
+          >
+            <Box sx={{
+              marginTop: 1, // Adjust units as needed (px, rem, etc.)
+              display: 'flex',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              width: '100%',
+            }}>
+              <TextField
+                sx={{
+                  width: 300,
+                  "@media (min-width:961px)": {
+                    width: 300,
+
+                    // height: "200px",
+                    // margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}
+                type="text"
+                placeholder="Enter city name"
+
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </Box>
+
+            {weather ? (
+              <>
                 <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 20px',
+                  width: "600px",
                   "@media (min-width:961px)": {
                     width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
+                    height: "380px",
+                    margin: '10px 0px ',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
+
                   },
-  
-                  // Adjust units as needed (px, rem, etc.)
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  margin: '30px 0',
                 }}>
-                  <WaterDropIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
-                    "@media (min-width:961px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
-                      display: 'flex',
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                    },
-  
-                  }} />
+                  <Typography
+
+                    sx={{
+                      fontSize: 50,
+                      "@media (min-width:961px)": {
+                        fontSize: "1rem",
+
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+
+                    }} >{weather.name}</Typography>
+                  <Typography>{weather.sys.country}</Typography>
                   <Box sx={{
+                    fontSize: '10rem',
                     "@media (min-width:961px)": {
-                      fontSize: "2rem",
-  
+                      margin: '-50px 0px ',
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
                   }}>
-                    <Typography>{weather.main.humidity}%</Typography>
-                    <Typography>Humidity</Typography>
-                  </Box>
-                </Box>
-  
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  margin: '0 30px', // Adjust units as needed (px, rem, etc.)
-                  "@media (min-width:961px)": {
-                    width: "300px",
-                    height: "200px",
-                    margin: '10px 0px -100px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                  },
-  
-                }}>
-                  <AirTwoToneIcon sx={{
-                    fontSize: '2rem', marginRight: '10px',
+                    {iconChanger(weather.weather[0].main)}
+                  </Box  >
+                  <Typography sx={{
+                    fontSize: 50,
                     "@media (min-width:961px)": {
-                      // fontSize:"2rem",  
-                      ml: 2,
+                      fontSize: "2rem",
+
                       display: 'flex',
                       alignItems: 'center',
                       flexDirection: 'column',
                     },
-                  }} />
-                  <Box
-                    sx={{
+                  }}>{weather.main.temp.toFixed(0)}</Typography>
+                  <Typography>{weather.weather[0].main}</Typography>
+                </Box>
+
+                <Box sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  fontFamily: '"Josefin Sans", sans-serif', // Adjust font family if needed
+                  margin: '10px',
+                  background: 'linear-gradient(90deg, rgba(243, 255, 253, 1) 0%, rgba(253, 255, 232, 1) 100%)',
+                  borderRadius: '12px',
+                  padding: '10px',
+                  "@media (max-width:600px)": {
+                    width: "280px",
+                    height: "190px",
+                    margin: '10px 0px 50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                  },
+                }}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 20px',
+                    "@media (min-width:961px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                    // Adjust units as needed (px, rem, etc.)
+                  }}>
+                    <WaterDropIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
                       "@media (min-width:961px)": {
-                        fontSize: "2rem",
-  
+                        // fontSize:"2rem",  
+                        ml: 2,
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
                       },
-                    }}
-                  >
-                    {/* <h1>{weatherData.wind.speed}km/h</h1> */}
-                    <Typography>{weather.wind.speed}km/h</Typography>
-                    <Typography>Wind speed</Typography>
+
+                    }} />
+                    <Box sx={{
+                      "@media (min-width:961px)": {
+                        fontSize: "2rem",
+
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }}>
+                      <Typography>{weather.main.humidity}%</Typography>
+                      <Typography>Humidity</Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '0 30px', // Adjust units as needed (px, rem, etc.)
+                    "@media (min-width:961px)": {
+                      width: "300px",
+                      height: "200px",
+                      margin: '10px 0px -100px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexDirection: 'column',
+                    },
+
+                  }}>
+                    <AirTwoToneIcon sx={{
+                      fontSize: '2rem', marginRight: '10px',
+                      "@media (min-width:961px)": {
+                        // fontSize:"2rem",  
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                      },
+                    }} />
+                    <Box
+                      sx={{
+                        "@media (min-width:961px)": {
+                          fontSize: "2rem",
+
+                          display: 'flex',
+                          alignItems: 'center',
+                          flexDirection: 'column',
+                        },
+                      }}
+                    >
+                      {/* <h1>{weatherData.wind.speed}km/h</h1> */}
+                      <Typography>{weather.wind.speed}km/h</Typography>
+                      <Typography>Wind speed</Typography>
+                    </Box>
                   </Box>
                 </Box>
+              </>
+            ) : isLoading ? (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+              }}>
+                <HourglassBottomIcon />
+                <Typography>Loading</Typography>
               </Box>
-            </>
-          ) : isLoading ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              <HourglassBottomIcon />
-              <Typography>Loading</Typography>
-            </Box>
-          ) : error ? (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-              color: "red"
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography >{error}</Typography>
-            </Box>
-          ) : (
-            <Box sx={{
-              height: '400px',
-              width: '300px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 9999,
-            }}>
-              {/* <HourglassBottomIcon /> */}
-              <Typography>Please enter the city name</Typography>
-            </Box>
-          )}
-        </Box>
+            ) : error ? (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+                color: "red"
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography >{error}</Typography>
+              </Box>
+            ) : (
+              <Box sx={{
+                height: '400px',
+                width: '300px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 9999,
+              }}>
+                {/* <HourglassBottomIcon /> */}
+                <Typography>Please enter the city name</Typography>
+              </Box>
+            )}
+          </Box>
         )
       }
-     
+
     </CustomMainConatiner>
   );
 };
