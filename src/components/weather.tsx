@@ -32,7 +32,7 @@ interface WeatherDataProps {
 }
 
 
-const DisplayWeather = () =>{
+const DisplayWeather = () => {
 
   const api_key = "72c751450fe0d9481fa6d8f7bf2cb9c1";
   const api_Endpoint = "https://api.openweathermap.org/data/2.5/";
@@ -122,12 +122,13 @@ const DisplayWeather = () =>{
                 width: "300px",
                 height: "650px",
               },
+            
               backgroundColor: '#80D0EB',
               borderRadius: '12px',
               padding: '5rem',
               position: 'absolute',
               top: '50%',
-              left: '50%',
+              left: '55%',
               transform: 'translate(-70%, -50%)',
               boxShadow: '0 10px 15px rgba(0, 0, 0, 0.2)', // Adjusted rgba values
               boxSizing: 'border-box',
