@@ -123,7 +123,7 @@ const DisplayWeather = () => {
             sx={{
               ml: 6,
               "@media (max-width:600px)": {
-                width: "350px",
+                width: "340px",
                 height: "650px",
               },
 
@@ -176,7 +176,6 @@ const DisplayWeather = () => {
                   // top:"-50px",
                   // ml: "20px",
                   ml: 10,
-
                   margin: '-50px -45px 50px 10px',
                   width: "50px",
                   height: "50px",
