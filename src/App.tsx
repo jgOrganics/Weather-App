@@ -19,9 +19,6 @@ const theme = createTheme({
 });
 function App() {
   return (
-    // <div className="home">
-    //  <DisplayWeather />
-    // </div>
       <ThemeProvider theme={theme}>
        <DisplayWeather />
     </ThemeProvider>
