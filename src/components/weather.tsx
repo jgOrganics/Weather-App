@@ -442,18 +442,20 @@ const DisplayWeather = () => {
                 onChange={(e) => setCity(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              <IconButton
-                style={styles.iconButton}>
+          
                 <SearchIcon
                   sx={{
                     ml: 10,
                     margin: '10px 0px 40px 10px ',
                     width: "50px",
-                    height: "50px"
+                    height: "50px",
+                    '&:hover': {
+                      cursor: 'pointer',
+                    },
                   }}
                   onClick={handleSearch}
                 />
-              </IconButton>
+         
 
             </Box>
 
@@ -711,19 +713,20 @@ const DisplayWeather = () => {
                 onChange={(e) => setCity(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              <IconButton
-                style={styles.iconButton}
-              >
+           
                 <SearchIcon
                   sx={{
                     ml: "20px",
                     width: "50px",
-                    height: "50px"
+                    height: "50px",
+                    '&:hover': {
+                      cursor: 'pointer',
+                    },
                   }}
 
                   onClick={handleSearch}
                 />
-              </IconButton>
+           
 
             </Box>
 
@@ -894,7 +897,14 @@ const DisplayWeather = () => {
               <SearchIcon
                 style={styles.iconButton}
                 aria-label="Search"
-
+                sx={{
+                  ml: "20px",
+                  width: "50px",
+                  height: "50px",
+                  '&:hover': {
+                    cursor: 'pointer',
+                  },
+                }}
                 onClick={handleSearch}
               />
             </Box>
