@@ -121,9 +121,9 @@ const DisplayWeather = () => {
         isMobile ? (
           <Box
             sx={{
-              ml: 5,
+              ml: 6,
               "@media (max-width:600px)": {
-                width: "300px",
+                width: "350px",
                 height: "650px",
               },
 
@@ -156,9 +156,8 @@ const DisplayWeather = () => {
                 variant="outlined"
                 style={{ width: '600px' }}
                 sx={{
-                  // width: 600,
+                  width: 600,
                   "@media (max-width:600px)": {
-
                     margin: '-50px 0px 50px',
                     display: 'flex',
                     alignItems: 'center',
@@ -171,21 +170,23 @@ const DisplayWeather = () => {
                 onChange={(e) => setCity(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              <IconButton
-                style={styles.iconButton}
 
-              >
-                <SearchIcon
-                  sx={{
-                    // top:"-50px",
-                    ml: "20px",
-                    margin: '-50px 0px 50px',
-                    width: "50px",
-                    height: "50px"
-                  }}
-                  onClick={handleSearch}
-                />
-              </IconButton>
+              <SearchIcon
+                sx={{
+                  // top:"-50px",
+                  // ml: "20px",
+                  ml: 10,
+
+                  margin: '-50px -45px 50px 10px',
+                  width: "50px",
+                  height: "50px",
+                  '&:hover': {
+                    cursor: 'pointer',
+                  },
+                }}
+                onClick={handleSearch}
+              />
+
             </Box>
 
             {weather ? (
