@@ -121,7 +121,7 @@ const DisplayWeather = () => {
         isMobile ? (
           <Box
             sx={{
-              ml: 8,
+              ml: 5,
               "@media (max-width:600px)": {
                 width: "350px",
                 height: "650px",
