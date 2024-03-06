@@ -14,7 +14,6 @@ import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import { CustomMainConatiner } from "../styles/Styles";
 // import SearchIcon from '@material-ui/icons/Search';
 import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
 
 interface WeatherDataProps {
 
